@@ -2,7 +2,7 @@ export default function Meme() {
   return (
     // including meme with form to reduce complexity
     <main>
-      <form action="submit" className="form">
+      <div className="form">
         <div>
           <label htmlFor="top-text">Top text</label>
           <input
@@ -22,7 +22,7 @@ export default function Meme() {
           />
         </div>
         <button className="form--button">Get a new meme image 🖼</button>
-      </form>
+      </div>
     </main>
   );
 }
