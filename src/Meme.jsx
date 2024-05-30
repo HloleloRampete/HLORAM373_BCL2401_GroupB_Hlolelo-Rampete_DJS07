@@ -1,15 +1,18 @@
-import memesData from "../memesData.js"
+import React from "react";
+import memesData from "./memesData.jsx";
 
 export default function Meme() {
+  const [meme, setMeme] = React.useState({
+    topText: "",
+    bottomText: "",
+    randomImage: "http://i.imgflip.com/1bij.jpg"
+    });
 
-    let url
-    
-    function getMemeImage() {
-        const memesArray = memesData.data.memes
-        const randomNumber = Math.floor(Math.random() * memesArray.length)
-        url = memesArray[randomNumber].url
-        console.log(url)
-    }    
+  function getMemeImage() {
+    const memesArray = memesData.data.memes;
+    const randomNumber = Math.floor(Math.random() * memesArray.length);
+    setMemeImage(memesArray[randomNumber].url);
+  }
 
   return (
     // including meme with form to reduce complexity
@@ -33,8 +36,12 @@ export default function Meme() {
             placeholder="Me in the Morning"
           />
         </div>
-        <button className="form--button" onClick={getMemeImage} >Get a new meme image 🖼</button>
+        <button className="form--button" onClick={getMemeImage}>
+          Get a new meme image 🖼
+        </button>
       </div>
+      
+      <img src={memeImage} alt="Meme" className="meme--image" />
     </main>
   );
 }
