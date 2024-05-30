@@ -39,36 +39,28 @@ export default function Meme() {
     // including meme with form to reduce complexity
     <main>
       <div className="form">
-        <div>
-          <label htmlFor="top-text">Top text</label>
-          <input
-            id="top-text"
-            type="text"
-            className="form--input"
-            placeholder="Top Text"
-            name="toptext"
-            value={meme.topText}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="bottom-text">Bottom text</label>
-          <input
-            id="bottom-text"
-            type="text"
-            className="form--input"
-            placeholder="Bottom Text"
-            name="bottomtext"
-            value={meme.bottomText}
-            onChange={handleChange}
-          />
-        </div>
+        <input
+          type="text"
+          placeholder="Top text"
+          className="form--input"
+          name="topText"
+          value={meme.topText}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          placeholder="Bottom text"
+          className="form--input"
+          name="bottomText"
+          value={meme.bottomText}
+          onChange={handleChange}
+        />
         <button className="form--button" onClick={getMemeImage}>
           Get a new meme image 🖼
         </button>
       </div>
       <div className="meme">
-        <img src={meme.randomImage} alt="Meme" className="meme--image" />
+        <img src={meme.randomImage} className="meme--image" />
         <h2 className="meme--text top">{meme.topText}</h2>
         <h2 className="meme--text bottom">{meme.bottomText}</h2>
       </div>
