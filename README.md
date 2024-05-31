@@ -26,17 +26,40 @@ The selected meme image and the entered text are displayed on the page. The imag
 ## How to Run the Code
 To run this project locally, follow these steps:
 
-1. **Clone the Repository**:
-git clone https://github.com/your-username/meme-generator.git
-cd meme-generator
-2. **Install Dependencies**:
+1. **Install Dependencies**:
 Make sure you have Node.js installed. Then, install the project dependencies:
 npm install (which was the first time I took to code my solution)
-3. **Run the Development Server**:
+2. **Run the Development Server**:
 Start the development server using Vite:
 npm run dev
-4. **Open the Application**:
+3. **Open the Application**:
 Open your browser and go to ***http://localhost:3000*** (or the port specified in your terminal) to see the application in action.
+
+## Explanation of Why Certain Elements Were Used:
+
+1. **State Management**:
+
+- The **'useState'** hook is used to manage the state of the meme and all memes. This hook is perfect for simple state management within functional components.
+- Using an object for **'meme'** state helps in grouping related properties (topText, bottomText, randomImage) together, making it easier to manage and update them collectively.
+
+2. **Fetching Data with useEffect**:
+
+- **'useEffect'** is used to fetch data when the component mounts. This ensures that the data fetching logic runs only once, similar to **'componentDidMount'** in class components.
+- Fetching the data inside **'useEffect'** and storing it in the state allows the component to re-render with the fetched data.
+
+3. **Controlled Components**:
+
+- Inputs are controlled components with their values tied to the state. This provides a single source of truth for form inputs and ensures that the UI reflects the current state.
+- The **'handleChange'** function dynamically updates the state based on the input's name attribute. This pattern is efficient and reduces the need for multiple event handlers.
+
+4. **Random Meme Image Generation**:
+
+- The **'getMemeImage'** function generates a random index to select a meme from the fetched memes array. This approach ensures that a new random meme is displayed each time the button is clicked.
+
+5. **Rendering the Meme**:
+
+- The **'src'** attribute of the **'img'** tag is dynamically set to the **'randomImage'** property of the **'meme'** state. This allows the image to update whenever the state changes.
+- The meme text (top and bottom) is displayed using **'h2'** tags with classes to position them appropriately over the image.
 
 ## Key Takeaways from Working with React for the First Time
 1. **State Management**: Understanding how to manage state in a React application is crucial. React's **'useState'** hook makes it straightforward to handle state within functional components.
